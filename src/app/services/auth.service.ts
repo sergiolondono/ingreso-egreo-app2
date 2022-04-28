@@ -21,7 +21,7 @@ export class AuthService {
               private firestore: AngularFirestore,
               private store: Store<AppState>) { }
 
-  initAuthListener(){
+  initAuthListener() {
     this.auth.authState.subscribe(fUser => {
       if(fUser)
       {
