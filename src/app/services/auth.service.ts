@@ -21,7 +21,7 @@ export class AuthService {
               private firestore: AngularFirestore,
               private store: Store<AppState>) { }
 
-  initAuthListener() {
+  initAuthListener(){
     this.auth.authState.subscribe(fUser => {
       if(fUser)
       {
@@ -30,7 +30,7 @@ export class AuthService {
           console.log(fireStoreUser);
           const user = Usuario.fromFirebase(fireStoreUser);
           this.store.dispatch(authActions.setUser({ user }));
-        });
+          });
       } else{
         this.userSubscription.unsubscribe();
         this.store.dispatch(authActions.unSetUser());

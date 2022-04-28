@@ -2,7 +2,7 @@ import { EmailValidator } from "@angular/forms";
 
 export class Usuario {
 
-    static fromFirebase({uid, nombre, email}) {
+    static fromFirebase({ uid, nombre, email }) {
         return new Usuario(uid, nombre, email);
     }
 
