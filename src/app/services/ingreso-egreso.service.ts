@@ -19,11 +19,12 @@ export class IngresoEgresoService {
 
     const uid = this.authservice.usuario.uid;
 
-    const { descripcion, monto, tipo } = ingresoEgreso;
+    delete ingresoEgreso.uid;
+    
     console.log(uid);
     return this.firestore.doc(`${uid}/ingresos-egresos`)
       .collection('items')
-      .add({descripcion, monto, tipo});
+      .add({ ...ingresoEgreso });
 
   }
 
